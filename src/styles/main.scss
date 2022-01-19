@@ -1,5 +1,14 @@
 @import 'reset';
 
+$hspace: 20px;
+$vspace: 20px;
+
+$font-size: 16px;
+$font-size-small: 14px;
+$font-size-medium: 24px;
+$font-size-large: 32px;
+$font-size-xlarge: 40px;
+
 * { box-sizing: border-box; }
 
 body {
@@ -15,3 +24,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.o-wrap { max-width: 700px; margin: 0 auto; }
+
+.c-general { background-color: plum; }
+.c-educational { background-color: royalblue; }
+.c-practical { background-color: aquamarine; }
+
+.c-general__title, .c-educational__title, .c-practical__title { font-size: $font-size-medium; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; }
+
+.c-form { display: flex; flex-direction: column; }
+.c-form__group { margin-bottom: $vspace/2; }
