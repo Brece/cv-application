@@ -73,15 +73,15 @@ code {
   margin: 0 auto;
 }
 
-.c-general {
+#c-general {
   background-color: plum;
 }
 
-.c-educational {
+#c-educational {
   background-color: royalblue;
 }
 
-.c-practical {
+#c-practical {
   background-color: aquamarine;
 }
 
@@ -102,7 +102,7 @@ code {
           flex-direction: column;
 }
 
-.c-form__group {
+.c-form__content__group {
   margin-bottom: 10px;
 }
 /*# sourceMappingURL=main.css.map */
