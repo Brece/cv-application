@@ -1,63 +1,39 @@
-import React from "react";
+import React from 'react';
+import uniqid from 'uniqid';
+import PracticalInput from './PracticalInput';
 
 class PracticalExperience extends React.Component {
-    handleChange = (e) => {
-        this.props.handleStateChange(e);
+    constructor() {
+        super();
+        this.state = {
+            view: false
+        }
     }
 
-    // TODO: option for more than one section, determine place to render
-    renderInputSection = () => {
-        return (
-            <div className="c-form__content">
-                <div className='c-form__content__group'>
-                    <label htmlFor='company'>Company Name:</label>
-                    <input type='text' id='company' name='company' data-key='practical' required onChange={this.handleChange} />
-                </div>
-                <div className='c-form__content__group'>
-                    <label htmlFor='title'>Position Title:</label>
-                    <input type='text' id='title' name='title' data-key='practical'  required onChange={this.handleChange} />
-                </div>
-                <div className='c-form__content__group'>
-                    <label htmlFor='task'>Main task of your job:</label>
-                    <textarea type='email' id='task' name='task' data-key='practical'  rows='4' cols='40' onChange={this.handleChange} />
-                </div>
-                <div className='c-form__content__group'>
-                    <label htmlFor='from'>From:</label>
-                    <input type='date' id='from' name='from' data-key='practical'  required onChange={this.handleChange} />
-                    <label htmlFor='to'>To:</label>
-                    <input type='date' id='to' name='to' data-key='practical'  required onChange={this.handleChange} />
-                </div>
-                <button type='button' className='c-btn c-practical__btn'>Delete</button>
-            </div>
-        )
+    handleToggleView = () => {
+        this.setState({ view: !this.state.view });
     }
 
     render() {
-            // TODO: duration 'from - to'
+        let inputSections =[];
+
+        if (this.props.practical.length > 0) {
+            inputSections = this.props.practical.map((item) => {
+                return <PracticalInput handleNewInputSubmit={this.props.handleNewInputSubmit} handleDeleteInput={this.props.handleDeleteInput} practical={item} key={uniqid()} />;
+            });
+        } else {
+            inputSections.push(<PracticalInput handleNewInputSubmit={this.props.handleNewInputSubmit} handleDeleteInput={this.props.handleDeleteInput} practical={this.props.practical} key={uniqid()} />);
+        }
+
         return (
             <section id='c-practical'>
                 <h2 className='c-practical__title'>Practical Information</h2>
-                <div className="c-form__content">
-                    <div className='c-form__content__group'>
-                        <label htmlFor='company'>Company Name:</label>
-                        <input type='text' id='company' name='company' data-key='practical'  required onChange={this.handleChange} />
-                    </div>
-                    <div className='c-form__content__group'>
-                        <label htmlFor='title'>Position Title:</label>
-                        <input type='text' id='title' name='title' data-key='practical'  required onChange={this.handleChange} />
-                    </div>
-                    <div className='c-form__content__group'>
-                        <label htmlFor='task'>Main task of your job:</label>
-                        <textarea type='email' id='task' name='task' data-key='practical'  rows='4' cols='40' onChange={this.handleChange} />
-                    </div>
-                    <div className='c-form__content__group'>
-                        <label htmlFor='from'>From:</label>
-                        <input type='date' id='from' name='from' data-key='practical'  required onChange={this.handleChange} />
-                        <label htmlFor='to'>To:</label>
-                        <input type='date' id='to' name='to' data-key='practical'  required onChange={this.handleChange} />
-                    </div>
-                </div>
-                <button type='button' className='c-btn c-practical__btn' onClick={this.renderInputSection}>Add Additional Experience</button>
+                {inputSections}
+
+                {this.state.view
+                ? <PracticalInput handleNewInputSubmit={this.props.handleNewInputSubmit} handleDeleteInput={this.props.handleDeleteInput} practical={this.props.practical} key={uniqid()} />
+                : ''}
+                <button type='button' className='c-btn c-practical__btn' onClick={this.handleToggleView}>Add Experience</button>
             </section>
         );
     }

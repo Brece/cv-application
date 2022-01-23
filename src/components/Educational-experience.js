@@ -1,71 +1,39 @@
-import React from "react";
+import React from 'react';
 import uniqid from 'uniqid';
+import EducationalInput from './EducationalInput';
 
 class EducationalExperience extends React.Component {
     constructor() {
         super();
         this.state = {
-            counter: 0
+            view: false
         }
     }
-    handleChange = (e) => {
-        this.props.handleStateChange(e);
-    }
 
-    newSection = () => {
-        return (
-            <div className='c-form__content' key={uniqid()}>
-                <div className='c-form__content__group'>
-                    <label htmlFor='school'>School Name:</label>
-                    <input type='text' id='school' name='school' data-key='educational' required onChange={this.handleChange} />
-                </div>
-                <div className='c-form__content__group'>
-                    <label htmlFor='study'>Title of Study:</label>
-                    <input type='text' id='study' name='study' data-key='educational' required onChange={this.handleChange} />
-                </div>
-                <div className='c-form__content__group'>
-                    <label htmlFor='date'>Date of Study:</label>
-                    <input type='date' id='date' name='date' data-key='educational' required onChange={this.handleChange} />
-                </div>
-                <button type='button' className='c-btn c-practical__btn' onClick={this.handleCounter()}>Delete</button>
-            </div>
-        )
-    }
-
-    // TODO: increase and decrease counter and delete section
-    handleCounter = () => {
-        this.setState({ counter: this.state.counter + 1 }, 
-            () => this.renderSection());
-    }
-
-    renderSection = () => {
-        let sections = [];
-        for (let i = 0; i < this.state.counter; i++) {
-            sections.push(this.newSection());
-        }
-        return sections;
+    handleToggleView = () => {
+        this.setState({ view: !this.state.view });
     }
 
     render() {
+        let inputSections = [];
+
+        if (this.props.educational.length > 0) {
+            inputSections = this.props.educational.map((item) => {
+                return <EducationalInput handleNewInputSubmit={this.props.handleNewInputSubmit} handleDeleteInput={this.props.handleDeleteInput} educational={item} key={uniqid()} />;
+            });
+        } else {
+            inputSections.push(<EducationalInput handleNewInputSubmit={this.props.handleNewInputSubmit} handleDeleteInput={this.props.handleDeleteInput} educational={this.props.educational} key={uniqid()} />);
+        }
+
         return (
             <section id='c-educational'>
                 <h2 className='c-educational__title'>Educational Information</h2>
-                <div className="c-form__content">
-                    <div className='c-form__content__group'>
-                        <label htmlFor='school'>School Name:</label>
-                        <input type='text' id='school' name='school' data-key='educational' required onChange={this.handleChange} />
-                    </div>
-                    <div className='c-form__content__group'>
-                        <label htmlFor='study'>Title of Study:</label>
-                        <input type='text' id='study' name='study' data-key='educational' required onChange={this.handleChange} />
-                    </div>
-                    <div className='c-form__content__group'>
-                        <label htmlFor='date'>Date of Study:</label>
-                        <input type='date' id='date' name='date' data-key='educational' required onChange={this.handleChange} />
-                    </div>
-                </div>
-                {this.renderSection()}
-                <button type='button' className='c-btn c-practical__btn' onClick={this.handleCounter}>Add Additional Experience</button>
+                {inputSections}
+
+                {this.state.view
+                ? <EducationalInput handleNewInputSubmit={this.props.handleNewInputSubmit} handleDeleteInput={this.props.handleDeleteInput} educational={this.props.educational} key={uniqid()} />
+                : ''}
+                <button type='button' className='c-btn c-educational__btn' onClick={this.handleToggleView}>Add Experience</button>
             </section>
         );
     }
