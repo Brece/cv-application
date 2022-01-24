@@ -42,7 +42,7 @@ class PracticalInput extends React.Component {
                 </div>
                 <div className='c-form__content__group'>
                     <label htmlFor='task'>Main task of your job:</label>
-                    <textarea id='task' name='task' data-key='practical' value={this.state.task} rows='4' cols='40' onChange={this.handleChange} />
+                    <textarea id='task' name='task' data-key='practical' value={this.state.task} rows='4' cols='38' onChange={this.handleChange} />
                 </div>
                 <div className='c-form__content__group'>
                     <label htmlFor='from'>From:</label>

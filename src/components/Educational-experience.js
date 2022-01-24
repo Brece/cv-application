@@ -33,7 +33,7 @@ class EducationalExperience extends React.Component {
                 {this.state.view
                 ? <EducationalInput handleNewInputSubmit={this.props.handleNewInputSubmit} handleDeleteInput={this.props.handleDeleteInput} educational={this.props.educational} key={uniqid()} />
                 : ''}
-                <button type='button' className='c-btn c-educational__btn' onClick={this.handleToggleView}>Add Experience</button>
+                <button type='button' className='c-btn c-educational__addBtn' onClick={this.handleToggleView}>Add Experience</button>
             </section>
         );
     }

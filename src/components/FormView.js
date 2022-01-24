@@ -61,8 +61,8 @@ class FormView extends React.Component {
                         <img src='#' alt='User Profile' />
                     </div>
                     <div className='c-view__header__teaser'>
-                        <p>{general.email}</p>
-                        <p>{general.phone}</p>
+                        <p>{!general ? '' : general.email}</p>
+                        <p>{!general ? '' : general.phone}</p>
                     </div>
                 </div>
                 <div className='u-offset'>
@@ -72,11 +72,11 @@ class FormView extends React.Component {
                                 <h2>General Information</h2>
                                 <div className='c-view__content__left__general__item'>
                                     <h3>Name:</h3>
-                                    <p>{general.firstname} {general.lastname}</p>
+                                    <p>{!general ? '' : general.firstname} {!general ? '' : general.lastname}</p>
                                 </div>
                                 <div className='c-view__content__left__general__item'>
                                     <h3>About Me:</h3>
-                                    <p>{general.info}</p>
+                                    <p>{!general ? '' : general.info}</p>
                                 </div>
                             </div>
                             <div className='u-border c-view__content__left__educational'>

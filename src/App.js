@@ -84,8 +84,8 @@ class App extends React.Component {
 				<EducationalExperience handleNewInputSubmit={this.handleNewInputSubmit} handleDeleteInput={this.handleDeleteInput} educational={this.state.educational} />
 				<PracticalExperience handleNewInputSubmit={this.handleNewInputSubmit} handleDeleteInput={this.handleDeleteInput} practical={this.state.practical} />
 				<div className='c-form__group'>
-					<button type='submit' className='c-form__group__btn'>Submit</button>
-					<button type='button' className='c-form__group__btn' onClick={this.clearLocalStorage}>Clear Form</button>
+					<button type='submit' className='c-btn c-form__group__submitBtn'>Submit</button>
+					<button type='button' className='c-btn c-form__group__clearBtn' onClick={this.clearLocalStorage}>Clear Form</button>
 				</div>
 			</form>
 			<FormView state={this.state} />
