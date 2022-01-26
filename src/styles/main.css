@@ -200,7 +200,7 @@ code {
 .c-view {
   position: relative;
   max-width: 900px;
-  height: 100vh;
+  min-height: 100vh;
   padding: 80px 80px 60px;
   background-color: #232323;
   color: #bcbcbc;
