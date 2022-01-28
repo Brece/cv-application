@@ -76,7 +76,6 @@ class App extends React.Component {
 	}
 
 	render() {
-		// TODO: fix form structure and basic styling
 		return (
 		<div className="c-app">
 			<form onSubmit={this.updateLocalStorage} className='c-form'>

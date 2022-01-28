@@ -95,7 +95,7 @@ code {
   p { flex: 1; }
 }
 
-// TODO: mediaqueries, change flex direction and container width
+// Media Queries
 @media screen and (max-width: 1280px)  {
   .c-app { flex-direction: column; }
 
