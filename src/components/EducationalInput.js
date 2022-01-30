@@ -30,22 +30,24 @@ function EducationalInput (props) {
     }
 
     return (
-        <div className='c-form__content' data-id={state.id}>
-            <div className='c-form__content__group'>
-                <label htmlFor='school'>School Name:</label>
-                <input type='text' id='school' name='school' data-key='educational' value={state.school} required onChange={handleChange} />
+        <form onSubmit={handleSubmit} className='c-form'>
+            <div className='c-form__content' data-id={state.id}>
+                <div className='c-form__content__group'>
+                    <label htmlFor='school'>School Name:</label>
+                    <input type='text' id='school' name='school' data-key='educational' value={state.school} required onChange={handleChange} />
+                </div>
+                <div className='c-form__content__group'>
+                    <label htmlFor='study'>Title of Study:</label>
+                    <input type='text' id='study' name='study' data-key='educational' value={state.study} required onChange={handleChange} />
+                </div>
+                <div className='c-form__content__group'>
+                    <label htmlFor='date'>Date of Study:</label>
+                    <input type='date' id='date' name='date' data-key='educational' value={state.date} required onChange={handleChange} />
+                </div>
+                <button type='submit' className='c-btn c-educational__btn'>Submit / Edit</button>
+                <button type='button' className='c-btn c-educational__btn' onClick={handleDelete}>Delete</button>
             </div>
-            <div className='c-form__content__group'>
-                <label htmlFor='study'>Title of Study:</label>
-                <input type='text' id='study' name='study' data-key='educational' value={state.study} required onChange={handleChange} />
-            </div>
-            <div className='c-form__content__group'>
-                <label htmlFor='date'>Date of Study:</label>
-                <input type='date' id='date' name='date' data-key='educational' value={state.date} required onChange={handleChange} />
-            </div>
-            <button type='button' className='c-btn c-educational__btn' onClick={handleSubmit}>Submit / Edit</button>
-            <button type='button' className='c-btn c-educational__btn' onClick={handleDelete}>Delete</button>
-        </div>
+        </form>
     );
 }
 

@@ -91,16 +91,15 @@ function App() {
 	});
 
 	return (
-		<div className="c-app">
-			<form onSubmit={updateLocalStorage} className='c-form'>
+		<div className='c-app'>
+			<div className='c-app__form'>
 				<GeneralInformation handleNewInputSubmit={handleNewInputSubmit} handleDeleteInput={handleDeleteInput} general={state.general[0]} />
 				<EducationalExperience handleNewInputSubmit={handleNewInputSubmit} handleDeleteInput={handleDeleteInput} educational={state.educational} />
 				<PracticalExperience handleNewInputSubmit={handleNewInputSubmit} handleDeleteInput={handleDeleteInput} practical={state.practical} />
 				<div className='c-form__group'>
-					<button type='submit' className='c-btn c-form__group__submitBtn'>Submit</button>
 					<button type='button' className='c-btn c-form__group__clearBtn' onClick={clearLocalStorage}>Clear Form</button>
 				</div>
-			</form>
+			</div>
 			<FormView state={state} />
 		</div>
 		);

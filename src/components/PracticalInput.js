@@ -32,28 +32,30 @@ function PracticalInput (props) {
     }
 
     return (
-        <div className='c-form__content' data-id={state.id}>
-            <div className='c-form__content__group'>
-                <label htmlFor='company'>Company Name:</label>
-                <input type='text' id='company' name='company' data-key='practical' value={state.company} required onChange={handleChange} />
+        <form onSubmit={handleSubmit} className='c-form'>
+            <div className='c-form__content' data-id={state.id}>
+                <div className='c-form__content__group'>
+                    <label htmlFor='company'>Company Name:</label>
+                    <input type='text' id='company' name='company' data-key='practical' value={state.company} required onChange={handleChange} />
+                </div>
+                <div className='c-form__content__group'>
+                    <label htmlFor='title'>Position Title:</label>
+                    <input type='text' id='title' name='title' data-key='practical' value={state.title} required onChange={handleChange} />
+                </div>
+                <div className='c-form__content__group'>
+                    <label htmlFor='task'>Main task of your job:</label>
+                    <textarea id='task' name='task' data-key='practical' value={state.task} rows='4' cols='38' onChange={handleChange} />
+                </div>
+                <div className='c-form__content__group'>
+                    <label htmlFor='from'>From:</label>
+                    <input type='date' id='from' name='from' data-key='practical' value={state.from} required onChange={handleChange} />
+                    <label htmlFor='to'>To:</label>
+                    <input type='date' id='to' name='to' data-key='practical' value={state.to} required onChange={handleChange} />
+                </div>
+                <button type='submit' className='c-btn c-practical__btn'>Submit / Edit</button>
+                <button type='button' className='c-btn c-practical__btn' onClick={handleDelete}>Delete</button>
             </div>
-            <div className='c-form__content__group'>
-                <label htmlFor='title'>Position Title:</label>
-                <input type='text' id='title' name='title' data-key='practical' value={state.title} required onChange={handleChange} />
-            </div>
-            <div className='c-form__content__group'>
-                <label htmlFor='task'>Main task of your job:</label>
-                <textarea id='task' name='task' data-key='practical' value={state.task} rows='4' cols='38' onChange={handleChange} />
-            </div>
-            <div className='c-form__content__group'>
-                <label htmlFor='from'>From:</label>
-                <input type='date' id='from' name='from' data-key='practical' value={state.from} required onChange={handleChange} />
-                <label htmlFor='to'>To:</label>
-                <input type='date' id='to' name='to' data-key='practical' value={state.to} required onChange={handleChange} />
-            </div>
-            <button type='button' className='c-btn c-practical__btn' onClick={handleSubmit}>Submit / Edit</button>
-            <button type='button' className='c-btn c-practical__btn' onClick={handleDelete}>Delete</button>
-        </div>
+        </form>
     );
 }
 

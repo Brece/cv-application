@@ -79,12 +79,11 @@ code {
   border-left: 2px solid #bcbcbc;
 }
 
-#c-general {
-  margin-bottom: 40px;
-}
-
-#c-educational {
-  margin-bottom: 40px;
+#c-general, #c-educational, #c-practical {
+  width: 100%;
+  margin: 0 auto 40px;
+  padding: 20px 20px;
+  border: 1px solid #232323;
 }
 
 .c-app {
@@ -100,6 +99,14 @@ code {
           justify-content: space-between;
   max-width: 1400px;
   margin: 0 auto;
+}
+
+.c-app__form {
+  max-width: 550px;
+  margin-right: 40px;
+  margin-left: 40px;
+  padding: 20px 20px;
+  background-color: #ededed;
 }
 
 .c-btn {
@@ -142,22 +149,6 @@ code {
   background-color: #f9435e;
   color: #fff;
   font-weight: bold;
-}
-
-.c-form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  max-width: 550px;
-  margin-right: 40px;
-  margin-bottom: 60px;
-  padding: 20px 20px;
-  border: 1px solid #232323;
-  background-color: #ededed;
 }
 
 .c-form__content {
@@ -332,6 +323,9 @@ code {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+  .c-app__form {
+    margin: 0 auto 40px;
+  }
   .c-form, .c-view {
     margin-left: auto;
     margin-right: auto;
@@ -358,10 +352,6 @@ code {
 }
 
 @media screen and (max-width: 600px) {
-  .c-form {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
   .c-form__content__group {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;

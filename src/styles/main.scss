@@ -33,11 +33,10 @@ code {
 .u-offset { margin-left: -$hspace*2; margin-right: -$hspace*2; }
 .u-border { margin-bottom: $vspace*2; padding-left: $hspace; border-left: 2px solid $color-font; }
 
-#c-general { margin-bottom: $vspace*2; }
-#c-educational { margin-bottom: $vspace*2; }
-// #c-practical {}
+#c-general, #c-educational, #c-practical { width: 100%; margin: 0 auto $vspace*2; padding: $vspace $hspace; border: 1px solid $color-bg-view;  }
 
 .c-app { display: flex; flex-direction: row; justify-content: space-between; max-width: 1400px; margin: 0 auto; }
+.c-app__form { max-width: 550px; margin-right: $hspace*2; margin-left: $hspace*2; padding: $vspace $hspace; background-color: $color-bg-form; }
 
 .c-btn { margin-right: $hspace; margin-bottom: $vspace/2; padding: $vspace/4 $hspace/2; border: 1px solid $color-bg-view; border-radius: 3px;
   &:hover { cursor: pointer; }
@@ -53,7 +52,6 @@ code {
 .c-form__group__submitBtn { padding: $vspace/2 $hspace; background-color: $color-highlight; color: #fff; font-weight: bold; }
 .c-form__group__clearBtn { padding: $vspace/2 $hspace; background-color: #f9435e; color: #fff; font-weight: bold; }
 
-.c-form { display: flex; flex-direction: column; max-width: 550px; margin-right: $hspace*2; margin-bottom: $vspace*3; padding: $vspace $hspace; border: 1px solid $color-bg-view; background-color: $color-bg-form; }
 .c-form__content { margin-bottom: $vspace; padding: $vspace/2 $hspace/2; border: 1px solid $color-bg-view; }
 .c-form__content__group { display: flex; align-items: center; margin-bottom: $vspace/2;
   label { width: 33%; font-weight: bold; }
@@ -98,6 +96,7 @@ code {
 // Media Queries
 @media screen and (max-width: 1280px)  {
   .c-app { flex-direction: column; }
+  .c-app__form { margin: 0 auto $vspace*2; }
 
   .c-form, .c-view { margin-left: auto; margin-right: auto; }
 }
@@ -113,7 +112,6 @@ code {
 }
 
 @media screen and (max-width: 600px) {
-  .c-form { margin-left: $hspace; margin-right: $hspace; }
   .c-form__content__group { flex-direction: column;
     label { width: 100%; margin-bottom: $vspace/4; }
     input { width: 100%; }
