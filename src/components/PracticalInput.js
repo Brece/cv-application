@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import uniqid from 'uniqid';
 
 function PracticalInput (props) {
@@ -31,6 +31,18 @@ function PracticalInput (props) {
         props.handleViewReset();
     }
 
+    const handleValidDate = (e) => {
+        if (state.from !== '' && state.to !== '') {
+            const errorMessage = e.target.parentElement.parentElement.lastChild;
+            if (state.from < state.to) {
+                errorMessage.classList.remove('is-invalid');
+                return;
+            }
+            errorMessage.classList.add('is-invalid');
+            console.log(e.target.parentElement.parentElement.lastChild);
+        }
+    }
+
     return (
         <form onSubmit={handleSubmit} className='c-form'>
             <div className='c-form__content' data-id={state.id}>
@@ -46,11 +58,16 @@ function PracticalInput (props) {
                     <label htmlFor='task'>Main task of your job:</label>
                     <textarea id='task' name='task' data-key='practical' value={state.task} rows='4' cols='38' onChange={handleChange} />
                 </div>
-                <div className='c-form__content__group'>
-                    <label htmlFor='from'>From:</label>
-                    <input type='date' id='from' name='from' data-key='practical' value={state.from} required onChange={handleChange} />
-                    <label htmlFor='to'>To:</label>
-                    <input type='date' id='to' name='to' data-key='practical' value={state.to} required onChange={handleChange} />
+                <div className='c-form__content__group c-form__content__group--range'>
+                    <div className='c-form__content__group__date'>
+                        <label htmlFor='from'>From:</label>
+                        <input type='date' id='from' name='from' data-key='practical' value={state.from} required onChange={(e) => { handleChange(e); handleValidDate(e); }} />
+                    </div>
+                    <div className='c-form__content__group__date'>
+                        <label htmlFor='to'>To:</label>
+                        <input type='date' id='to' name='to' data-key='practical' value={state.to} required onChange={(e) => { handleChange(e); handleValidDate(e); }} />
+                    </div>
+                    <small className='c-form__content__group__error'>Invalid start or end date.</small>
                 </div>
                 <button type='submit' className='c-btn c-practical__btn'>Submit / Edit</button>
                 <button type='button' className='c-btn c-practical__btn' onClick={handleDelete}>Delete</button>

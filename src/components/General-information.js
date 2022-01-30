@@ -33,6 +33,16 @@ function GeneralInformation (props) {
         props.handleDeleteInput(state, e);
     }
 
+    const handleValidPhoneNumber = (e) => {
+        const value = e.target.value;
+        // if non-digit found show error message
+        if (/\D/.test(value)) {
+            e.target.nextSibling.classList.add('is-invalid');
+            return;
+        }
+        e.target.nextSibling.classList.remove('is-invalid');
+    }
+
     useEffect(() => {
         setState( !props.general 
             ?   {
@@ -75,7 +85,8 @@ function GeneralInformation (props) {
                     </div>
                     <div className='c-form__content__group'>
                         <label htmlFor='phone'>Phone Number:</label>
-                        <input type='tel' id='phone' name='phone' data-key='general' placeholder='01234456666' value={state.phone} onChange={handleChange} />
+                        <input type='tel' id='phone' name='phone' data-key='general' placeholder='01234456666' value={state.phone} onKeyUp={handleValidPhoneNumber} onChange={handleChange} />
+                        <small className='c-form__content__group__error'>Please enter only numbers and no spaces.</small>
                     </div>
                     <div className='c-form__content__group'>
                         <label htmlFor='info'>About Me:</label>

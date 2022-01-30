@@ -4,6 +4,7 @@ $hspace: 20px;
 $vspace: 20px;
 
 $font-size: 16px;
+$font-size-xsmall: 10px;
 $font-size-small: 12px;
 $font-size-medium: 20px;
 $font-size-large: 32px;
@@ -53,12 +54,19 @@ code {
 .c-form__group__clearBtn { padding: $vspace/2 $hspace; background-color: #f9435e; color: #fff; font-weight: bold; }
 
 .c-form__content { margin-bottom: $vspace; padding: $vspace/2 $hspace/2; border: 1px solid $color-bg-view; }
-.c-form__content__group { display: flex; align-items: center; margin-bottom: $vspace/2;
+.c-form__content__group { position: relative; display: flex; align-items: center; margin-bottom: $vspace;
   label { width: 33%; font-weight: bold; }
   input { flex: 1; }
   input[type='date'] { margin-right: $hspace/2; }
   textarea { flex: 1; }
 }
+.c-form__content__group__error { position: absolute; left: 33%; bottom: -15px; font-size: $font-size-xsmall; color: #f9435e; visibility: hidden; 
+  &.is-invalid { visibility: visible; }
+}
+.c-form__content__group--range { display: flex; flex-direction: column;
+  .c-form__content__group__error { bottom: 0; }
+}
+.c-form__content__group__date { display: flex; width: 100%; margin-bottom: $vspace; }
 
 .c-view { position: relative; max-width: 900px; min-height: 100vh; padding: $vspace*4 $hspace*4 $vspace*3; background-color: $color-bg-view; color: $color-font; font-size: $font-size-small; }
 .c-view::before { position: absolute; content: ''; width: 80px; height: 80px; top: 0; left: 0; background-color: $color-highlight; }
@@ -118,6 +126,8 @@ code {
     input[type='date'] { width: 100%; margin-right: 0; }
     textarea { width: 100%; }
   }
+  .c-form__content__group__date { flex-direction: column; }
+  .c-form__content__group__error { left: 0; }
 
   .c-view { padding: $vspace*2 $hspace*2; }
   .c-view::before { width: 40px; height: 40px; }
