@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import GeneralInformation from './components/General-information';
-import EducationalExperience from './components/Educational-experience';
-import PracticalExperience from './components/Practical-experience';
-import FormView from './components/FormView';
+import GeneralInformation from './General-information';
+import EducationalExperience from './Educational-experience';
+import PracticalExperience from './Practical-experience';
+import FormView from './FormView';
 
 function App() {
 	const [state, setState] = useState(
