@@ -1,5 +1,6 @@
 {
   "name": "cv-application",
+  "homepage": "https://brece.github.io/cv-application-app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
