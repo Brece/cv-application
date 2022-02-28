@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/main.css';
-import RouteSwitch from './RouteSwitch';
+import RouteSwitch from './components/RouteSwitch';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
