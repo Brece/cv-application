@@ -39,7 +39,6 @@ function PracticalInput (props) {
                 return;
             }
             errorMessage.classList.add('is-invalid');
-            console.log(e.target.parentElement.parentElement.lastChild);
         }
     }
 
