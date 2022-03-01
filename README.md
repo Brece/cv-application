@@ -12,3 +12,8 @@ Technologies uses:
     - Javascript
     - CSS
     - HTML
+
+
+LIVE DEMO:
+
+https://brece.github.io/cv-application/
